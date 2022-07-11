@@ -13,13 +13,14 @@ class PlantServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../database/migrations/' => database_path('migrations'),
         ], 'migrations');
+        Spork::addFeature('Greenhouse', 'SparklesIcon', '/greenhouse', 'crud');
 
-        Spork::addFeature('Greenhouse', 'SparklesIcon', '/greenhouse');
+        if (config('spork.greenhouse.enabled')) {
+            Spork::actions('Greenhouse', __DIR__ . '/Actions');
 
-        Spork::actions('Greenhouse', __DIR__ . '/Actions');
-
-        Route::middleware($this->app->make('config')->get('spork.greenhouse.middleware', ['auth:sanctum']))
-            ->prefix('api/greenhouse')
-            ->group(__DIR__ . '/../routes/web.php');
+            Route::middleware($this->app->make('config')->get('spork.greenhouse.middleware', ['auth:sanctum']))
+                ->prefix('api/greenhouse')
+                ->group(__DIR__ . '/../routes/web.php');
+        }
     }
 }

@@ -35,6 +35,8 @@ class FeedSeedling implements ActionInterface
         $plants = Seed::whereIn('id', $request->get('plants'))->get();
 
         foreach ($plants as $plant) {
+            $plant->feed();
+
             activity()->performedOn($plant)->causedBy($request->user())->log('feed');
         }
 

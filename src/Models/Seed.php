@@ -42,4 +42,27 @@ class Seed extends AbstractModel
             'last_fed_at' => 'date|nullable',
         ];
     }
+
+    public function feed()
+    {
+        $this->last_fed_at = now();
+        $this->save();
+    }
+
+    public function water()
+    {
+        $this->last_watered_at = now();
+        $this->save();
+    }
+
+    public function germinate()
+    {
+        $this->germinated_at = now();
+        $this->save();
+    }
+
+    public function plant()
+    {
+        return $this->belongsTo(Plant::class);
+    }
 }

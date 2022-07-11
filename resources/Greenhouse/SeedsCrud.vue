@@ -6,10 +6,10 @@
             singular="Seed"
             @save="onSave"
             @destroy="onDelete"
-            @index="() => $store.dispatch('getSeeds')"
+            @index="(pageAndLimit) => $store.dispatch('getSeeds', pageAndLimit)"
             @execute="onExecute"
             :data="$store.getters.seeds"
-
+            :paginator="$store.getters.seedPaginator"
         >
             <template v-slot:data="{ data }">
                 <div class="flex flex-col">
@@ -56,15 +56,15 @@
                     </div>
 
                     <div class="text-gray-700">
-                        <date-picker :modelValue="form.harvested_at" @update:modelValue="value => form.harvested_at = value" label="Expected harvest date"/>
+                        <date-picker :modelValue="form.harvested_at" @update:modelValue="value => form.harvested_at = value" label="Harvested date"/>
                     </div>
 
                     <div class="text-gray-700">
-                        <date-picker :modelValue="form.last_watered_at" @update:modelValue="value => form.last_watered_at = value" label="Expected harvest date"/>
+                        <date-picker :modelValue="form.last_watered_at" @update:modelValue="value => form.last_watered_at = value" label="Last watered date"/>
                     </div>
 
                     <div class="text-gray-700">
-                        <date-picker :modelValue="form.last_fed_at" @update:modelValue="value => form.last_fed_at = value" label="Expected harvest date"/>
+                        <date-picker :modelValue="form.last_fed_at" @update:modelValue="value => form.last_fed_at = value" label="Last fed date"/>
                     </div>
                 </div>
             </template>
@@ -73,7 +73,11 @@
         </crud-view>
     </div>
 </template>
-
+<!-- 
+I want to build a real time dashboard for my greenhouse.
+I'll assume that the server will need to listen on an MQTT topic for the data.
+And this website will need it to be converted to websocket.
+-->
 <script>
 export default {
     data() {

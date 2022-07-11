@@ -1,6 +1,6 @@
 {
     "name": "spork/greenhouse",
-    "description": "The Greenhouse package for Spork",
+    "description": "A repo meant for greenhyouse things!",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -13,6 +13,13 @@
     "autoload": {
         "psr-4": {
             "Spork\\Greenhouse\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spork\\Greenhouse\\PlantServiceProvider"
+            ]
         }
     }
 }
