@@ -15,6 +15,7 @@
                 Spork.authenticatedRoute('seeds', require('./Greenhouse/SeedsCrud').default),
     
                 Spork.authenticatedRoute('plants', require('./Greenhouse/PlantsCrud').default),
+                Spork.authenticatedRoute('plant/:id', require('./Greenhouse/ViewPlant').default),
             ]
         }),
     ]);
@@ -23,8 +24,11 @@
         if (!store.getters.isAuthenticated) {
             return;
         }
-    
-        await store.dispatch('getPlants');
-        await store.dispatch('getSeeds');
+        try {
+            await store.dispatch('getPlants');
+            await store.dispatch('getSeeds');
+        } catch (e) {
+            console.error('Greenhouse failed to load', e)
+        }
     })
 })()

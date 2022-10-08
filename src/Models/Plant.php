@@ -2,7 +2,7 @@
 
 namespace Spork\Greenhouse\Models;
 
-use App\Models\AbstractModel;
+use Spork\Core\Models\AbstractModel;
 use Kregel\LaravelAbstract\AbstractEloquentModel;
 use Kregel\LaravelAbstract\AbstractModelTrait;
 use Spatie\Activitylog\Traits\LogsActivity;

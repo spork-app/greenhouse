@@ -14,7 +14,7 @@
             <template v-slot:data="{ data }">
                 <div class="flex flex-col">
                     <div class="text-lg text-left">
-                        {{ data.name }}
+                        <router-link :to="'/greenhouse/plant/' + data.id">{{ data.name }}</router-link>
                     </div>
                     <div class="text-xs">
                         Expected yield: {{ data.expected_yield_per_harvest }}
