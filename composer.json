@@ -36,7 +36,7 @@
         "test": "vendor/bin/phpunit",
         "format": "vendor/bin/pint"
     },
-    "homepage": "https://github.com/spork-app/food",
+    "homepage": "https://github.com/spork-app/greenhouse",
     "keywords": [
         "spork-plugins"
     ],
