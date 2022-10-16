@@ -4,9 +4,7 @@ namespace Spork\Greenhouse\Actions;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Spork\Core\Contracts\ActionInterface;
-use Spork\Greenhouse\Models\Plant;
 use Spork\Greenhouse\Models\Seed;
 
 class WaterSeedling implements ActionInterface
@@ -23,14 +21,13 @@ class WaterSeedling implements ActionInterface
         return '/greenhouse/seeds/water';
     }
 
-    public function tags(): array 
+    public function tags(): array
     {
         return ['seeds'];
     }
 
     public function validation(array $rules): void
     {
-
     }
 
     public function __invoke(Request $request)

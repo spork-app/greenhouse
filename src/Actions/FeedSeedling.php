@@ -4,15 +4,12 @@ namespace Spork\Greenhouse\Actions;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Spork\Core\Contracts\ActionInterface;
-use Spork\Greenhouse\Models\Plant;
 use Spork\Greenhouse\Models\Seed;
 
 class FeedSeedling implements ActionInterface
 {
     use ValidatesRequests;
-
 
     public function name(): string
     {
@@ -24,13 +21,13 @@ class FeedSeedling implements ActionInterface
         return '/greenhouse/seeds/feed';
     }
 
-    public function tags(): array 
+    public function tags(): array
     {
         return ['seeds'];
     }
 
-    public function validation(array $rules): void 
-    { 
+    public function validation(array $rules): void
+    {
         request()->validate([
             'plants' => 'required|array',
         ]);

@@ -3,8 +3,6 @@
 namespace Spork\Greenhouse\Models;
 
 use Spork\Core\Models\AbstractModel;
-use Kregel\LaravelAbstract\AbstractEloquentModel;
-use Kregel\LaravelAbstract\AbstractModelTrait;
 
 class Seed extends AbstractModel
 {
@@ -28,7 +26,6 @@ class Seed extends AbstractModel
         'last_fed_at' => 'datetime',
     ];
 
-    
     public function getValidationCreateRules(): array
     {
         return [

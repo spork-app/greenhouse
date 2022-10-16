@@ -4,9 +4,7 @@ namespace Spork\Greenhouse\Actions;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Spork\Core\Contracts\ActionInterface;
-use Spork\Greenhouse\Models\Plant;
 use Spork\Greenhouse\Models\Seed;
 
 class TransitionToVeg implements ActionInterface
@@ -23,7 +21,8 @@ class TransitionToVeg implements ActionInterface
         return '/greenhouse/seeds/veg';
     }
 
-    public function tags(): array {
+    public function tags(): array
+    {
         return ['seeds'];
     }
 

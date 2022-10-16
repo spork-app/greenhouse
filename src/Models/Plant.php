@@ -2,11 +2,9 @@
 
 namespace Spork\Greenhouse\Models;
 
-use Spork\Core\Models\AbstractModel;
-use Kregel\LaravelAbstract\AbstractEloquentModel;
-use Kregel\LaravelAbstract\AbstractModelTrait;
-use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spork\Core\Models\AbstractModel;
 
 class Plant extends AbstractModel
 {
@@ -25,7 +23,7 @@ class Plant extends AbstractModel
         'settings' => 'array',
         'nutrient_schedule' => 'array',
     ];
-    
+
     public function getValidationCreateRules(): array
     {
         return [
@@ -50,5 +48,4 @@ class Plant extends AbstractModel
         ]);
         // Chain fluent methods for configuration options
     }
-
 }

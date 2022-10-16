@@ -6,5 +6,4 @@ use Kregel\LaravelAbstract\Http\Controllers\AbstractResourceController;
 
 class PlantsController extends AbstractResourceController
 {
-    
 }
