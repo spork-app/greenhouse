@@ -4,7 +4,7 @@
             :form="form"
             title="Plants"
             singular="Plant"
-            @save="onSave"
+            :save="onSave"
             @destroy="onDelete"
             @index="(pageAndLimit) => $store.dispatch('getPlants', pageAndLimit)"
             @execute="onExecute"
@@ -48,7 +48,7 @@
                             <input v-model="form.is_perpetual_harvest" type="checkbox" name="is_perpetual_harvest" id="is_perpetual_harvest" class=" border focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md" />
                         </div>
                     </div>
-                    
+
                     <div class="grid grid-cols-6 gap-6 mt-2">
                         <div class="col-span-6">
                             <label for="nutrient_schedule" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Nutrient Schedule</label>

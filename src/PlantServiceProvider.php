@@ -14,6 +14,8 @@ class PlantServiceProvider extends ServiceProvider
             __DIR__.'/../database/migrations/' => database_path('migrations'),
         ], 'migrations');
         Spork::addFeature('Greenhouse', 'SparklesIcon', '/greenhouse', 'crud');
+        $this->mergeConfigFrom(__DIR__ . '/../config/spork.php', 'spork.greenhouse');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         if (config('spork.greenhouse.enabled')) {
             Spork::actions('Greenhouse', __DIR__.'/Actions');

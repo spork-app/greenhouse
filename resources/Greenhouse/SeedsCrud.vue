@@ -4,7 +4,7 @@
             :form="form"
             title="Seeds"
             singular="Seed"
-            @save="onSave"
+            :save="onSave"
             @destroy="onDelete"
             @index="(pageAndLimit) => $store.dispatch('getSeeds', pageAndLimit)"
             @execute="onExecute"
@@ -73,7 +73,7 @@
         </crud-view>
     </div>
 </template>
-<!-- 
+<!--
 I want to build a real time dashboard for my greenhouse.
 I'll assume that the server will need to listen on an MQTT topic for the data.
 And this website will need it to be converted to websocket.
